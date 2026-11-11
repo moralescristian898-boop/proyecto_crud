@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Resultado</title></head>
+<body>
+    {% if accion == 'registrado' %}
+        <h1>Producto registrado correctamente</h1>
+    {% elif accion == 'actualizado' %}
+        <h1>Producto actualizado correctamente</h1>
+    {% elif accion == 'eliminado' %}
+        <h1>Producto eliminado correctamente</h1>
+    {% endif %}
+
+    {% if producto %}
+    <table>
+       <tr><th>Campo</th><th>Valor</th></tr>
+       <tr><td>ID</td><td>{{ producto.id }}</td></tr>
+       <tr><td>Nombre</td><td>{{ producto.nombre }}</td></tr>
+       <tr><td>Precio</td><td>${{ "%.2f"|format(producto.precio) }}</td></tr>
+       <tr><td>Cantidad</td><td>{{ producto.cantidad }}</td></tr>
+       <tr><td>Total</td><td>${{ "%.2f"|format(producto.total) }}</td></tr>
+    </table>
+    {% endif %}
+
+    <p>
+        <a href="/">Registrar otro</a> |
+        <a href="/productos">Ver listado completo</a>
+    </p>
+</body>
+</html>
