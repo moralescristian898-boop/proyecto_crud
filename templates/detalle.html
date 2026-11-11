@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Detalle del Producto</title></head>
+<body>
+    <h1>Producto #{{ producto.id }}</h1>
+
+    <table border="1" cellpadding="6">
+       <tr><th>Campo</th><th>Valor</th></tr>
+        <tr><td>Nombre</td><td>{{ producto.nombre }}</td></tr>
+       <tr><td>Precio</td><td>${{ "%.2f"|format(producto.precio) }}</td></tr>
+       <tr><td>Cantidad</td><td>{{ producto.cantidad }}</td></tr>
+       <tr><td>Total</td><td>${{ "%.2f"|format(producto.total) }}</td></tr>
+    </table>
+
+    <p>
+        <a href="/editar/{{ producto.id }}">Editar</a> |
+        <a href="/productos">Volver al listado</a>
+    </p>
+</body>
+</html>
